@@ -6,7 +6,7 @@ public class Graph
 {
     List<Edge> edges = new List<Edge>();
     List<Node> nodes = new List<Node>();
-    List<Node> pathList = new List<Node>();
+    public List<Node> pathList = new List<Node>();
 
     public Graph() { }
 
@@ -43,6 +43,12 @@ public class Graph
 
     public bool AStar(GameObject startID, GameObject endID)
     {
+        if(startID == endID)
+        {
+            pathList.Clear();
+            return false;
+        }
+        
         Node start = FindNode(startID);
         Node end = FindNode(endID);
 
